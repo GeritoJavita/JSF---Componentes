@@ -73,7 +73,7 @@
           <target>${maven.compiler.target}</target>
         </configuration>
       </plugin>
-
+  
       <!-- Plugin para generar WAR -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
