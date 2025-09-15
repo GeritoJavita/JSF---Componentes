@@ -45,6 +45,21 @@
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
+    <!-- CDI (Contexts and Dependency Injection) -->
+<dependency>
+    <groupId>jakarta.enterprise</groupId>
+    <artifactId>jakarta.enterprise.cdi-api</artifactId>
+    <version>4.0.1</version>
+    <scope>provided</scope>
+</dependency>
+
+<!-- Weld (implementación de CDI para Tomcat/Servlet) -->
+<dependency>
+    <groupId>org.jboss.weld.servlet</groupId>
+    <artifactId>weld-servlet-core</artifactId>
+    <version>5.1.0.Final</version>
+</dependency>
+
   </dependencies>
 
   <build>
