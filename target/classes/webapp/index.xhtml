@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Nómina JSF</title>
+</h:head>
+<h:body>
+    <h:form>
+        <p:panel header="Cálculo de Nómina" style="max-width:600px; margin:auto;">
+            <p:messages autoUpdate="true"/>
+
+            <p:outputLabel value="Nombre:" for="nombre"/>
+            <p:inputText id="nombre" value="#{nominaBean.empleado.nombre}" required="true"/>
+
+            <p:outputLabel value="Identificación:" for="identificacion"/>
+            <p:inputText id="identificacion" value="#{nominaBean.empleado.identificacion}" required="true"/>
+
+            <p:outputLabel value="Salario Básico:" for="salario"/>
+            <p:selectOneMenu id="salario" value="#{nominaBean.empleado.salarioBase}" required="true">
+                <f:selectItem itemLabel="Seleccione..." itemValue=""/>
+                <f:selectItem itemLabel="$1.300.000" itemValue="1300000"/>
+                <f:selectItem itemLabel="$1.500.000" itemValue="1500000"/>
+                <f:selectItem itemLabel="$2.000.000" itemValue="2000000"/>
+                <f:selectItem itemLabel="$2.500.000" itemValue="2500000"/>
+                <f:selectItem itemLabel="$3.000.000" itemValue="3000000"/>
+            </p:selectOneMenu>
+
+            <p:outputLabel value="Días Trabajados:" for="dias"/>
+            <p:spinner id="dias" min="1" max="30" value="#{nominaBean.empleado.diasTrabajados}" required="true"/>
+
+            <p:commandButton value="Calcular" update="resultado" icon="pi pi-check"/>
+            <p:commandButton value="Limpiar" actionListener="#{nominaBean.limpiar}" update="@form" icon="pi pi-refresh" styleClass="ui-button-danger"/>
+
+            <p:separator/>
+
+            <p:panel id="resultado" header="Resultado Nómina">
+                <h:panelGrid columns="2" rendered="#{not empty nominaBean.empleado.nombre}">
+                    <h:outputText value="Nombre:"/>
+                    <h:outputText value="#{nominaBean.empleado.nombre}"/>
+
+                    <h:outputText value="Identificación:"/>
+                    <h:outputText value="#{nominaBean.empleado.identificacion}"/>
+
+                    <h:outputText value="Salario Base:"/>
+                    <h:outputText value="#{nominaBean.empleado.salarioBase}"/>
+
+                    <h:outputText value="Días Trabajados:"/>
+                    <h:outputText value="#{nominaBean.empleado.diasTrabajados}"/>
+
+                    <h:outputText value="Salario Devengado:"/>
+                    <h:outputText value="#{nominaBean.empleado.calcularSalario()}"/>
+
+                    <h:outputText value="Descuento Salud (4%):"/>
+                    <h:outputText value="#{nominaBean.empleado.calcularSalud()}"/>
+
+                    <h:outputText value="Descuento Pensión (4%):"/>
+                    <h:outputText value="#{nominaBean.empleado.calcularPension()}"/>
+
+                    <h:outputText value="Auxilio Transporte:"/>
+                    <h:outputText value="#{nominaBean.empleado.calcularAuxilio()}"/>
+
+                    <h:outputText value="Neto a Pagar:" style="font-weight:bold;"/>
+                    <h:outputText value="#{nominaBean.empleado.calcularNeto()}" style="font-weight:bold;"/>
+                </h:panelGrid>
+            </p:panel>
+        </p:panel>
+    </h:form>
+</h:body>
+</html>
