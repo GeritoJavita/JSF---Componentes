@@ -15,9 +15,7 @@ public class NominaBean implements Serializable {
 
     private Empleado empleado = new Empleado();
 
-    public void limpiar() {
-        empleado = new Empleado();
-    }
+  
 
     public Empleado getEmpleado() {
         return empleado;
