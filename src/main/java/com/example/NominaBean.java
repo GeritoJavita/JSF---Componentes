@@ -19,7 +19,6 @@ public class NominaBean implements Serializable {
         empleado = new Empleado();
     }
 
-    // Getters & Setters
     public Empleado getEmpleado() {
         return empleado;
     }

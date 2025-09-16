@@ -5,7 +5,7 @@ public class Empleado {
     private String identificacion;
     private double salarioBase;
     private int diasTrabajados;
-
+/*SMMLV colombia mas o menos  */
     private static final double SMMLV = 1300000;
     private static final double AUXILIO_TRANSPORTE = 162000;
 
