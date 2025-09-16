@@ -50,7 +50,7 @@
     <groupId>jakarta.enterprise</groupId>
     <artifactId>jakarta.enterprise.cdi-api</artifactId>
     <version>4.0.1</version>
-    <scope>provided</scope>
+    
 </dependency>
 
 <!-- Weld (implementación de CDI para Tomcat/Servlet) -->
@@ -80,16 +80,7 @@
         <artifactId>maven-war-plugin</artifactId>
         <version>3.3.2</version>
       </plugin>
-      <plugin>
-  <groupId>org.eclipse.jetty</groupId>
-  <artifactId>jetty-maven-plugin</artifactId>
-  <version>11.0.15</version>
-  <configuration>
-    <webApp>
-      <contextPath>/componentes</contextPath>
-    </webApp>
-  </configuration>
-</plugin>
+      
 
     </plugins>
   </build>
